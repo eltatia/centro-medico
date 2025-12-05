@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#007BFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#004C99;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#28A745;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1A6F2C;stop-opacity:1" />
+    </linearGradient>
+
+    <style type="text/css">
+      .shield-left { fill: url(#blueGrad); }
+      .shield-right { fill: url(#greenGrad); }
+      .icon-white { fill: #FFFFFF; }
+      .caduceus-blue { fill: #007BFF; }
+    </style>
+  </defs>
+
+  <path class="shield-left" d="M250,50c-78.7,0-142.5,74.9-142.5,167.3c0,35.4,14.2,68.4,41.9,94.3L250,450V50z"/>
+  <path class="shield-right" d="M250,50c78.7,0,142.5,74.9,142.5,167.3c0,35.4-14.2,68.4-41.9,94.3L250,450V50z"/>
+
+  <g transform="translate(250, 150)">
+    <path class="icon-white" d="M0,0c-25,0-45.3,20.3-45.3,45.3s20.3,45.3,45.3,45.3c25,0,45.3-20.3,45.3-45.3S25,0,0,0z M-20,40c0,10,15,25,30,25c15,0,30-15,30-25c0-15-10-25-20-25H-10C-30,15-30,25-20,40z M-35,30c0-10,10-20,25-20s25,10,25,20c0,10-10,20-25,20S-35,40-35,30z"/>
+    <rect class="caduceus-blue" x="-5" y="0" width="10" height="150"/>
+    <path class="icon-white" d="M-5,150c-5.5,0-10-4.5-10-10v-50c0-5.5,4.5-10,10-10s10,4.5,10,10v50C5,145.5,0.5,150-5,150z M15,140c0-5.5-4.5-10-10-10s-10,4.5-10,10v-50c0-5.5,4.5-10,10-10s10,4.5,10,10v50z"/>
+    <path class="icon-white" d="M-20,130c0-5.5,4.5-10,10-10s10,4.5,10,10v-50c0-5.5-4.5-10-10-10s-10,4.5-10,10v50z M30,120c0-5.5-4.5-10-10-10s-10,4.5-10,10v-50c0-5.5,4.5-10,10-10s10,4.5,10,10v50z"/>
+  </g>
+
+  <g transform="translate(325, 250)">
+    <path class="shield-right" d="M-30,-20c-15.5,-15.5-40.5,-15.5-56,0c-15.5,15.5-15.5,40.5,0,56l56,56l56,-56c15.5,-15.5,15.5,-40.5,0,-56C-30,5-15,5,0,20c15.5,-15.5,40.5,-15.5,56,0c15.5,15.5,15.5,40.5,0,56z"/>
+    <rect class="icon-white" x="-20" y="-50" width="40" height="100" rx="5" ry="5"/>
+    <rect class="icon-white" x="-50" y="-20" width="100" height="40" rx="5" ry="5"/>
+  </g>
+</svg>
