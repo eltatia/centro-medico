@@ -8,6 +8,9 @@ export default function WelcomeSection() {
   const sectionRef = useRef(null);
   useRevealOnScroll(sectionRef);
 
+  const heroImageUrl =
+    "https://images.unsplash.com/photo-1527610276290-a3f39e87a8e0?auto=format&fit=crop&w=1200&q=80";
+
   return (
     <section ref={sectionRef} className="py-5 welcome-text-white welcome-section">
       <div className="container">
@@ -31,7 +34,7 @@ export default function WelcomeSection() {
           {/* Imagen */}
           <div className="col-lg-6">
             <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0RT-dj8qcQyWzGeDLrIZyAFI3P11g5WMTXbPnde7Q2jo4M5PBPZeTNFaRfErrxwKWYhfzA06Sz39BWdqafO7-mk8n7HrPogbk2Nj-RjRaPRXyR91zIvba7HqhSNikMWCvSK0SzqD6L7Ryyejpnw0jyU6E_NgTY1B0Y6ncWJPrZCZ465voHM_N6hvkoXbDjfaGBiLJRdAmXi7wPzE6zoj5dl35Q8W9TJCUefDfv8B57hn0goIHDYBdGr1jQcdOZMW_K6YAriv9fg"
+              src={heroImageUrl}
               className="img-fluid rounded-3 shadow"
               alt="Doctora sonriendo"
             />
