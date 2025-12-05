@@ -19,4 +19,16 @@ body {
     background-color: var(--background-light);
     color: var(--primary-color);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 200ms ease, color 200ms ease;
+}
+
+.is-hidden {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 450ms ease, transform 450ms ease;
 }

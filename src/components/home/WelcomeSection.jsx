@@ -1,11 +1,15 @@
 // src/components/WelcomeSection.jsx
-import React from "react";
+import React, { useRef } from "react";
 import "../../styles/home/WelcomeSection.css";
 import { Link } from "react-router-dom";
+import { useRevealOnScroll } from "../../hooks/useRevealOnScroll";
 
 export default function WelcomeSection() {
+  const sectionRef = useRef(null);
+  useRevealOnScroll(sectionRef);
+
   return (
-    <section className="py-5 welcome-text-white">
+    <section ref={sectionRef} className="py-5 welcome-text-white welcome-section">
       <div className="container">
 
         <div className="row align-items-center g-5">
@@ -19,7 +23,7 @@ export default function WelcomeSection() {
               Nos dedicamos a la prevención, diagnóstico y tratamiento con tecnología moderna.
             </p>
 
-            < Link className="btn btn-primary px-4 py-2 fw-bold mt-3" to="/sobre_nosotros">
+            <Link className="btn btn-primary px-4 py-2 fw-bold mt-3 btn-cta-soft" to="/sobre_nosotros">
               Conoce más de nosotros
             </Link>
           </div>

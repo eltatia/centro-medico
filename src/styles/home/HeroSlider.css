@@ -4,6 +4,7 @@
   max-height: 650px;
   overflow: hidden;
   position: relative;
+  background: linear-gradient(180deg, #0ea5e9 0%, rgba(14, 165, 233, 0.15) 100%);
 }
 
 /* IMÁGENES */
@@ -17,6 +18,7 @@
 .hero-content {
   bottom: 18%;
   text-shadow: 0px 2px 5px rgba(0,0,0,0.4);
+  animation: floatIn 700ms ease;
 }
 
 .hero-content h1 {
@@ -34,11 +36,24 @@
   background-color: #00a5c4;
   color: white;
   border-radius: 8px;
-  transition: 0.25s ease;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 250ms ease;
 }
 
 .btn-reservar:hover {
   background-color: #0088a2;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(0, 137, 162, 0.35);
+}
+
+.hero-content .btn-light {
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.hero-content .btn-light:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  border-color: #fff;
 }
 
 /* INDICADORES (puntos) */
@@ -47,10 +62,12 @@
   height: 12px;
   border-radius: 50%;
   background-color: rgba(255,255,255,0.6);
+  transition: transform 180ms ease, background-color 180ms ease;
 }
 
 .carousel-indicators .active {
   background-color: #00c0e6;
+  transform: scale(1.1);
 }
 
 .seasonal-slide-wrapper {
@@ -70,6 +87,13 @@
   filter: invert(100%) grayscale(100%);
   width: 40px;
   height: 40px;
+  transition: transform 180ms ease, filter 200ms ease;
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+  transform: translateY(-3px) scale(1.05);
+  filter: drop-shadow(0 8px 12px rgba(0,0,0,0.35)) invert(100%);
 }
 
 /* RESPONSIVE */
@@ -81,6 +105,11 @@
   .hero-content h1 {
     font-size: 2.2rem;
   }
+}
+
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 768px) {
