@@ -1,7 +1,7 @@
 import "../../styles/contacto/ContactoView.css";
 
-const LAT = -12.046374;
-const LNG = -77.042793;
+const LAT = -12.599305;
+const LNG = -69.182861;
 const MAP = `https://www.google.com/maps?q=${LAT},${LNG}&z=15&output=embed`;
 
 export default function Contactanos({ form, onChange, onSubmit, status }) {
