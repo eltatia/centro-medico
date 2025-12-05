@@ -9,7 +9,7 @@ export default function WelcomeSection() {
   useRevealOnScroll(sectionRef);
 
   const heroImageUrl =
-    "https://images.unsplash.com/photo-1527610276290-a3f39e87a8e0?auto=format&fit=crop&w=1200&q=80";
+    "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=928&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
   return (
     <section ref={sectionRef} className="py-5 welcome-text-white welcome-section">
