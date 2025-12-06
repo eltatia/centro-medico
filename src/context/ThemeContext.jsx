@@ -9,6 +9,7 @@ export const ThemeProvider = ({ children }) => {
   const [currentCampaign, setCurrentCampaign] = useState("default");
   const [isAutomatic, setIsAutomaticState] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [themeError, setThemeError] = useState("");
 
   // ➜ usando .env con fallback
   const API_URL =
@@ -18,7 +19,9 @@ export const ThemeProvider = ({ children }) => {
   const fetchTheme = async () => {
     // Si no hay URL, no sigas
     if (!API_URL) {
-      console.error("API_URL no está definida");
+      const message = "API_URL no está definida";
+      console.error(message);
+      setThemeError(message);
       setLoading(false);
       return;
     }
@@ -32,7 +35,9 @@ export const ThemeProvider = ({ children }) => {
 
       // Si NO es JSON, no intentes parsear
       if (!contentType || !contentType.includes("application/json")) {
-        console.error("Respuesta NO JSON desde API_URL:", raw);
+        const message = "Respuesta NO JSON desde API_URL";
+        console.error(message, raw);
+        setThemeError(message);
         setLoading(false);
         return;
       }
@@ -52,6 +57,7 @@ export const ThemeProvider = ({ children }) => {
       }
     } catch (error) {
       console.error("Fetch Error:", error);
+      setThemeError("No se pudo cargar la configuración de tema");
     } finally {
       setLoading(false);
     }
@@ -84,6 +90,7 @@ export const ThemeProvider = ({ children }) => {
 
     if (!API_URL) {
       console.error("API_URL no está definida (saveConfig)");
+      setThemeError("No se pudo guardar la configuración");
       return;
     }
 
@@ -100,6 +107,7 @@ export const ThemeProvider = ({ children }) => {
 
       if (!contentType || !contentType.includes("application/json")) {
         console.error("Respuesta NO JSON en POST /api/theme:", text);
+        setThemeError("No se pudo guardar la configuración");
         return;
       }
 
@@ -107,6 +115,7 @@ export const ThemeProvider = ({ children }) => {
       console.log("Respuesta POST /api/theme:", data);
     } catch (error) {
       console.error("Save Error:", error);
+      setThemeError("No se pudo guardar la configuración");
     }
   };
 
@@ -120,6 +129,7 @@ export const ThemeProvider = ({ children }) => {
         setCurrentTheme: (v) => !isAutomatic && saveConfig("theme", v),
         setCampaign: (v) => !isAutomatic && saveConfig("campaign", v),
         loading,
+        themeError,
       }}
     >
       {children}

@@ -1,7 +1,7 @@
 import "../../styles/contacto/ContactoView.css";
 
-const LAT = -12.046374;
-const LNG = -77.042793;
+const LAT = -12.599305;
+const LNG = -69.182861;
 const MAP = `https://www.google.com/maps?q=${LAT},${LNG}&z=15&output=embed`;
 
 export default function Contactanos({ form, onChange, onSubmit, status }) {
@@ -9,7 +9,7 @@ export default function Contactanos({ form, onChange, onSubmit, status }) {
     <main className="contact-page container">
       <header className="contact-header">
         <h1>Contáctanos</h1>
-        <p><strong>Emergencias 24/7:</strong> <a href="tel:+51XXXXXXXXX">+51 X XXX XXX</a></p>
+        <p><strong>Emergencias 24/7:</strong> <a href="tel:+51 912342342">+51 1 234 234 2</a></p>
       </header>
 
       <div className="contact-grid">
@@ -75,8 +75,8 @@ export default function Contactanos({ form, onChange, onSubmit, status }) {
         <aside className="panel">
           <h2>Ubicación y horarios</h2>
 
-          <p><strong>Dirección:</strong> Av. Ejemplo 123</p>
-          <p><strong>Central:</strong> <a href="tel:+51YYYYYYYYY">+51 Y YYY YYY</a></p>
+          <p><strong>Dirección:</strong> Av. Carlos Fermin Fitzcarrald 252, Puerto Maldonado 17001</p>
+          <p><strong>Central:</strong> <a href="tel:+51 1 234 234 2">+51 1 234 234 2</a></p>
 
           <iframe title="Mapa" src={MAP} loading="lazy" />
 

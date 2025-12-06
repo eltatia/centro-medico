@@ -1,13 +1,18 @@
 // src/components/SpecialtiesSection.jsx
-import React from "react";
+import React, { useRef } from "react";
 import {
   MdFavorite,
   MdChildCare,
   MdPregnantWoman,
   MdFaceRetouchingNatural
 } from "react-icons/md";
+import { useRevealOnScroll } from "../../hooks/useRevealOnScroll";
+import "../../styles/home/SpecialtiesSection.css";
 
 export default function SpecialtiesSection() {
+  const sectionRef = useRef(null);
+  useRevealOnScroll(sectionRef);
+
   const specialties = [
     {
       icon: <MdFavorite size={50} className="text-primary" />,
@@ -32,11 +37,11 @@ export default function SpecialtiesSection() {
   ];
 
   return (
-    <section className="py-5 bg-light">
+    <section ref={sectionRef} className="py-5 bg-light specialties-section">
       <div className="container">
 
         {/* Título */}
-        <div className="text-center mb-5">
+        <div className="text-center mb-5 section-header">
           <h2 className="fw-bold text-dark">Nuestras Especialidades</h2>
           <p className="text-muted fs-5">
             Servicios médicos para cubrir todas tus necesidades de salud.
@@ -47,10 +52,10 @@ export default function SpecialtiesSection() {
         <div className="row g-4">
           {specialties.map((s) => (
             <div key={s.title} className="col-12 col-sm-6 col-lg-3">
-              <div className="p-4 border rounded shadow-sm bg-white h-100 text-center">
+              <div className="p-4 border rounded shadow-sm bg-white h-100 text-center specialty-card">
 
                 {/* Ícono */}
-                <div className="mb-3">
+                <div className="mb-3 specialty-icon">
                   {s.icon}
                 </div>
 

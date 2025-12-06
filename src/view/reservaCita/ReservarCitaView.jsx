@@ -15,6 +15,27 @@ export default function ReservarCitaView() {
   const [telefono, setTelefono] = useState("");
   const [sintomas, setSintomas] = useState("");
 
+  const steps = [
+    {
+      id: 1,
+      label: "Datos del paciente",
+      completed: paciente.trim() !== "" && telefono.length === 9 && sintomas.trim() !== "",
+    },
+    {
+      id: 2,
+      label: "Fecha seleccionada",
+      completed: !!selectedDay,
+    },
+    {
+      id: 3,
+      label: "Horario reservado",
+      completed: !!selectedHour,
+    },
+  ];
+
+  const activeIndex = steps.findIndex((step) => !step.completed);
+  const currentStep = activeIndex === -1 ? steps.length : activeIndex + 1;
+
   return (
     <div className="container reservar-container py-5">
 
@@ -26,6 +47,19 @@ export default function ReservarCitaView() {
         <h2 className="text-secondary fs-5 mt-2">
           Sigue los pasos para encontrar un horario que te convenga.
         </h2>
+      </div>
+
+      <div className="progress-stepper mb-5">
+        {steps.map((step, index) => (
+          <div
+            key={step.id}
+            className={`step-item ${step.completed ? "is-complete" : ""} ${currentStep === step.id ? "is-active" : ""}`}
+          >
+            <div className="step-circle">{step.completed ? "✓" : step.id}</div>
+            <p className="step-label">{step.label}</p>
+            {index < steps.length - 1 && <span className="step-connector" />}
+          </div>
+        ))}
       </div>
 
       {/* CONTENEDOR DE PASOS */}

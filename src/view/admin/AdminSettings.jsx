@@ -7,12 +7,29 @@ import ThemeCard from './ThemeCard';
 import '../../styles/AdminSettings.css';
 const AdminSettings = () => {
     // Traemos isAutomatic y toggleAutomatic
-    const { currentTheme, setCurrentTheme, currentCampaign, setCampaign, isAutomatic, toggleAutomatic, loading } = useContext(ThemeContext);
+    const { currentTheme, setCurrentTheme, currentCampaign, setCampaign, isAutomatic, toggleAutomatic, loading, themeError } = useContext(ThemeContext);
 
-    if (loading) return <div className="admin-container">Cargando...</div>;
+    if (loading) {
+        return (
+            <div className="admin-container">
+                <div className="skeleton-row shimmer" />
+                <div className="skeleton-grid">
+                    {Array.from({ length: 3 }).map((_, idx) => (
+                        <div key={idx} className="skeleton-card shimmer" />
+                    ))}
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="admin-container">
+
+            {themeError && (
+                <div className="alert alert-warning mb-4" role="alert">
+                    {themeError}. Usaremos los ajustes locales mientras tanto.
+                </div>
+            )}
 
             {/* --- NUEVO: PANEL DE CONTROL DE AUTOMATIZACIÓN --- */}
             <div className="automation-panel">

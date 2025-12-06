@@ -196,3 +196,41 @@ input:checked + .slider:before {
     font-size: 0.75rem;
     margin-left: 10px;
 }
+
+/* Skeletons para carga */
+.skeleton-row {
+    height: 32px;
+    border-radius: 10px;
+    background: #e2e8f0;
+    margin-bottom: 20px;
+}
+
+.skeleton-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.skeleton-card {
+    height: 160px;
+    border-radius: 14px;
+    background: #e2e8f0;
+}
+
+.shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.shimmer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0) 100%);
+    transform: translateX(-100%);
+    animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+    to { transform: translateX(100%); }
+}

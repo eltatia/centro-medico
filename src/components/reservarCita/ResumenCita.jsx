@@ -4,6 +4,8 @@ import { registrarCita } from "../../service/citasService";
 
 export default function ResumenCita({ paciente, telefono, sintomas, fecha, hora, tipoCita }) {
 
+  const isComplete = paciente && telefono.length === 9 && sintomas && fecha && hora;
+
   const guardarCita = async () => {
 
     // VALIDACIÓN CAMPOS VACÍOS
@@ -100,10 +102,18 @@ export default function ResumenCita({ paciente, telefono, sintomas, fecha, hora,
 
       <hr className="my-4" />
 
-      <button className="btn btn-primary btn-confirm w-100"
-        onClick={guardarCita}>
+      <button
+        className="btn btn-primary btn-confirm w-100"
+        onClick={guardarCita}
+        disabled={!isComplete}
+      >
         Confirmar Cita
       </button>
+      {!isComplete && (
+        <p className="text-muted small mt-2 text-center">
+          Completa los pasos anteriores para habilitar la confirmación.
+        </p>
+      )}
 
     </div>
   );

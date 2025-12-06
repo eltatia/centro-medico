@@ -1,11 +1,18 @@
 // src/components/WelcomeSection.jsx
-import React from "react";
+import React, { useRef } from "react";
 import "../../styles/home/WelcomeSection.css";
 import { Link } from "react-router-dom";
+import { useRevealOnScroll } from "../../hooks/useRevealOnScroll";
 
 export default function WelcomeSection() {
+  const sectionRef = useRef(null);
+  useRevealOnScroll(sectionRef);
+
+  const heroImageUrl =
+    "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=928&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+
   return (
-    <section className="py-5 welcome-text-white">
+    <section ref={sectionRef} className="py-5 welcome-text-white welcome-section">
       <div className="container">
 
         <div className="row align-items-center g-5">
@@ -19,7 +26,7 @@ export default function WelcomeSection() {
               Nos dedicamos a la prevención, diagnóstico y tratamiento con tecnología moderna.
             </p>
 
-            < Link className="btn btn-primary px-4 py-2 fw-bold mt-3" to="/sobre_nosotros">
+            <Link className="btn btn-primary px-4 py-2 fw-bold mt-3 btn-cta-soft" to="/sobre_nosotros">
               Conoce más de nosotros
             </Link>
           </div>
@@ -27,7 +34,7 @@ export default function WelcomeSection() {
           {/* Imagen */}
           <div className="col-lg-6">
             <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0RT-dj8qcQyWzGeDLrIZyAFI3P11g5WMTXbPnde7Q2jo4M5PBPZeTNFaRfErrxwKWYhfzA06Sz39BWdqafO7-mk8n7HrPogbk2Nj-RjRaPRXyR91zIvba7HqhSNikMWCvSK0SzqD6L7Ryyejpnw0jyU6E_NgTY1B0Y6ncWJPrZCZ465voHM_N6hvkoXbDjfaGBiLJRdAmXi7wPzE6zoj5dl35Q8W9TJCUefDfv8B57hn0goIHDYBdGr1jQcdOZMW_K6YAriv9fg"
+              src={heroImageUrl}
               className="img-fluid rounded-3 shadow"
               alt="Doctora sonriendo"
             />

@@ -1,0 +1,65 @@
+.specialties-section .section-header {
+  position: relative;
+}
+
+.specialties-section .section-header::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -12px;
+  width: 120px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #00a5c4, #7dd3fc);
+}
+
+.specialty-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+  border-color: rgba(0, 165, 196, 0.15) !important;
+}
+
+.specialty-card::before {
+  content: "";
+  position: absolute;
+  inset: -40% -40% auto auto;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at 30% 30%, rgba(0, 165, 196, 0.12), transparent 60%);
+  transform: rotate(12deg);
+}
+
+.specialty-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 165, 196, 0.35) !important;
+}
+
+.specialty-card:hover .specialty-icon svg {
+  transform: scale(1.08);
+  filter: drop-shadow(0 8px 12px rgba(0, 165, 196, 0.35));
+}
+
+.specialty-icon svg {
+  transition: transform 250ms ease, filter 250ms ease;
+}
+
+.specialties-section.is-hidden .section-header,
+.specialties-section.is-hidden .specialty-card {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.specialties-section.is-visible .section-header,
+.specialties-section.is-visible .specialty-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 450ms ease, transform 450ms ease;
+}
+
+.specialties-section.is-visible .specialty-card:nth-child(1) { transition-delay: 60ms; }
+.specialties-section.is-visible .specialty-card:nth-child(2) { transition-delay: 120ms; }
+.specialties-section.is-visible .specialty-card:nth-child(3) { transition-delay: 180ms; }
+.specialties-section.is-visible .specialty-card:nth-child(4) { transition-delay: 240ms; }
